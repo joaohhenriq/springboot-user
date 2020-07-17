@@ -10,8 +10,8 @@ public class Teste {
 
 	public static void main(String[] args) {
 
-		Cliente c1 = new Cliente("joao", true, "123");
-		Cliente c2 = new Cliente("maria", true, "123");
+		Cliente c1 = new Cliente("joao", true, "123", 1);
+		Cliente c2 = new Cliente("maria", true, "123", 1);
 		c1.autenticaSenha("1234");
 
 		List<Cliente> clientes = Arrays.asList(c1, c2);
@@ -53,7 +53,7 @@ public class Teste {
 		// Referência ao metodo: apenas em interfaces funcionais
 		clientes.forEach(Cliente::getNome);
 		
-		Cliente c3 = new Cliente("Ana", false, "333");
+		Cliente c3 = new Cliente("Ana", false, "333", 1);
 		
 		Consumer<Cliente> consumidor1 = Cliente::getNome;
 		consumidor1.accept(c3);
