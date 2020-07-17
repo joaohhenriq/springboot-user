@@ -11,6 +11,7 @@ public class Teste {
 
 		Cliente c1 = new Cliente("joao", true, "123");
 		Cliente c2 = new Cliente("maria", true, "123");
+		c1.autenticaSenha("1234");
 		
 		List<Cliente> clientes = Arrays.asList(c1, c2);
 		

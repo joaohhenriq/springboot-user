@@ -1,6 +1,8 @@
 package br.com.user.models;
 
-public class Cliente {
+import br.com.user.interface_funcional.Autentica;
+
+public class Cliente implements Autentica {
 	private String nome;
 	private boolean status;
 	private String senha;
@@ -23,6 +25,17 @@ public class Cliente {
 
 	public String getSenha() {
 		return this.senha;
+	}
+
+	@Override
+	public boolean autenticaSenha(String senha) {
+		if(this.senha != senha) {
+			System.out.println("Não autenticado!");
+			return false;
+		}
+		
+		System.out.println("Autenticado");
+		return true;
 	}
 	
 }
