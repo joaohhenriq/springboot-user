@@ -33,12 +33,12 @@ public class Teste {
 		
 		// como é uma interface funcional, ou seja, só tem um método, o compilador já sabe que deve inferir 
 		// essa função ao método accept
-		Consumer<Cliente> consumidor = (Cliente c) -> {System.out.println(c.getNome());};
+//		Consumer<Cliente> consumidor = (Cliente c) -> {System.out.println(c.getNome());};
 
-		clientes.forEach(consumidor);
+//		clientes.forEach(consumidor);
 		
 		// ou pode fazer desse jeito, ainda mais simplificado e direto
-		clientes.forEach(c -> System.out.println(c.getNome()));
+//		clientes.forEach(c -> System.out.println(c.getNome()));
 		
 		//apenas dá pra utilizar uma expressão lambda quando é implementado uma interface funcional
 		
@@ -47,6 +47,19 @@ public class Teste {
 		// Runnable é uma interface funcional, possui apenas o método run sem parâmetros
 		Runnable r = () -> System.out.println("Olá mundo");
 		new Thread(r).start();
+		
+		//------------------------------------------------
+		
+		// Referência ao metodo: apenas em interfaces funcionais
+		clientes.forEach(Cliente::getNome);
+		
+		Cliente c3 = new Cliente("Ana", false, "333");
+		
+		Consumer<Cliente> consumidor1 = Cliente::getNome;
+		consumidor1.accept(c3);
+		
+		Runnable r1 = c3::getNome;
+		r1.run();
 	}
 
 }

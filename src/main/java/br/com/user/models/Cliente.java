@@ -15,6 +15,7 @@ public class Cliente implements Autentica {
 	}
 
 	public String getNome() {
+		System.out.println("Nome: " + this.nome);
 		return this.nome;
 	}
 
